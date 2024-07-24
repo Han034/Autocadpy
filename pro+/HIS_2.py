@@ -97,10 +97,10 @@ sq = acadModel.AddPolyline(aaDouble([
                                     0+move, H4_LEN,0,
                                     -H5_LEN+move, H4_LEN,0,
                                     -H5_LEN+move, H4_LEN + H6_LEN,0,
-                                    H9_LEN-20+move,H4_LEN+H6_LEN-H7_LEN-20,0,
+                                    H9_LEN-H6_LEN+move-4,H4_LEN + H6_LEN + H7_LEN-10,0, #n7
                                     H9_LEN+move,H4_LEN,0,
                                     H1_LEN-H9X_LEN+move,H4_LEN,0,
-                                    H1_LEN-H9X_LEN+15+move,H4_LEN+H6_LEN-H7_LEN-20,0,
+                                    H1_LEN-H9X_LEN+H6_LEN+move+4,H4_LEN+H6_LEN+H7_LEN-10,0, #n12
                                     H9_LEN+H12X_LEN+H9X_LEN+H5X_LEN+move, H4_LEN+H6_LEN,0,
                                     H9_LEN+H12X_LEN+H9X_LEN+H5X_LEN+move, H4_LEN,0,
                                     H10_LEN+H15_LEN+H3_LEN+H15X_LEN+H10X_LEN+move, H4_LEN,0,
@@ -233,16 +233,16 @@ out_loop = []
 sq = acadModel.AddPolyline(aaDouble([
                                      -H5_LEN+move, H4_LEN + H6_LEN,0,
                                      -H5_LEN+move, H4_LEN + H6_LEN + H7_LEN,0,
-                                     H9_LEN-20+move,H4_LEN+H6_LEN-H7_LEN-10,0,
+                                     H9_LEN-H6_LEN+move,H4_LEN + H6_LEN + H7_LEN,0, #n6
                                      +H9_LEN+15+move,H4_LEN+10,0, #n8
                                      H1_LEN-H9X_LEN+move-15,H4_LEN+10,0,#n11
-                                     H1_LEN-H9X_LEN+10+move,H4_LEN+H6_LEN-H7_LEN-10,0,
+                                     H1_LEN-H9X_LEN+H6_LEN+move,H4_LEN+H6_LEN+H7_LEN,0, #n13
                                      H9_LEN+H12X_LEN+H9X_LEN+H5X_LEN+move, H4_LEN+H6_LEN+H7_LEN,0,
                                      H9_LEN+H12X_LEN+H9X_LEN+H5X_LEN+move, H4_LEN+H6_LEN,0,
-                                     H1_LEN-H9X_LEN+15+move,H4_LEN+H6_LEN-H7_LEN-20,0,
+                                     H1_LEN-H9X_LEN+H6_LEN+move+4,H4_LEN+H6_LEN+H7_LEN-10,0, #n12
                                      H1_LEN-H9X_LEN+move,H4_LEN,0,
                                      H9_LEN+move,H4_LEN,0,
-                                     H9_LEN-20+move,H4_LEN+H6_LEN-H7_LEN-20,0,
+                                     H9_LEN-H6_LEN+move-4,H4_LEN + H6_LEN + H7_LEN-10,0, #n7
                                      -H5_LEN+move, H4_LEN + H6_LEN,0
                                      ]))
 sq.lineweight = -1
@@ -294,15 +294,19 @@ n3 = APoint(-H5_LEN+move, H4_LEN)
 n4 = APoint(-H5_LEN+move, H4_LEN + H6_LEN)
 n5 = APoint(-H5_LEN+move, H4_LEN + H6_LEN + H7_LEN)
 #=============================================
-n6 = APoint(H9_LEN-20+move,H4_LEN+H6_LEN-H7_LEN-10)
-n7 = APoint(H9_LEN-20+move,H4_LEN+H6_LEN-H7_LEN-20)
+#n6 = APoint(H9_LEN-20+move,H4_LEN+H6_LEN-H7_LEN-10)
+n6 = APoint(H9_LEN-H6_LEN+move,H4_LEN + H6_LEN + H7_LEN)
+#n7 = APoint(H9_LEN-20+move,H4_LEN+H6_LEN-H7_LEN-20)
+n7 = APoint(H9_LEN-H6_LEN+move-4,H4_LEN + H6_LEN + H7_LEN-10)
 n8 = APoint(+H9_LEN+15+move,H4_LEN+10)
 n9 = APoint(H9_LEN+move,H4_LEN)
 n10 = APoint(H1_LEN-H9X_LEN+move,H4_LEN)
 #=============================================
 n11 = APoint(H1_LEN-H9X_LEN+move-15,H4_LEN+10)
-n12 = APoint(H1_LEN-H9X_LEN+15+move,H4_LEN+H6_LEN-H7_LEN-20)
-n13 = APoint(H1_LEN-H9X_LEN+10+move,H4_LEN+H6_LEN-H7_LEN-10)
+#n12 = APoint(H1_LEN-H9X_LEN+15+move,H4_LEN+H6_LEN-H7_LEN-20)
+n12 = APoint(H1_LEN-H9X_LEN+H6_LEN+move+4,H4_LEN+H6_LEN+H7_LEN-10)
+#n13 = APoint(H1_LEN-H9X_LEN+10+move,H4_LEN+H6_LEN-H7_LEN-10)
+n13 = APoint(H1_LEN-H9X_LEN+H6_LEN+move,H4_LEN+H6_LEN+H7_LEN)
 #=============================================
 n14 = APoint(H9_LEN+H12X_LEN+H9X_LEN+H5X_LEN+move, H4_LEN+H6_LEN)
 n15 = APoint(H9_LEN+H12X_LEN+H9X_LEN+H5X_LEN+move, H4_LEN+H6_LEN+H7_LEN)
