@@ -151,6 +151,131 @@ b = APoint(x_intercept, y_intercept)  # k_10 noktası
 
 # Çizginin uzunluğunu hesapla
 line_length = math.sqrt((b.x - a.x)**2 + (b.y - a.y)**2)
+print(line_length)
+
+# Hesaplama sonuçlarını yazdır
+print(f"Kesişim noktası: ({b.x}, {b.y})")
+print(f"Çizginin uzunluğu: {line_length:.2f}")
+
+#---------------------su2---------------------------------
+#su1 = (A2_LEN+A3_LEN,H2_LEN+H3_LEN+H4_LEN-35)
+# Dik kenar üzerindeki nokta
+y0 = H2_LEN+H3_LEN+H4_LEN-55
+a2 = APoint(A2_LEN+B2_LEN+A3_LEN, y0)  # a noktası (270, 450)
+
+# Hipotenüsün denklemi: y = -4.1x + 1637
+hipotenus_slope = (C.y - B.y) / (C.x - B.x)  # Eğim hesaplanması
+hipotenus_intercept = C.y - (hipotenus_slope * C.x)  # y-keseni hesaplanması
+
+# Çizgi denklemi: y = y0
+line_slope = -0,3
+line_intercept = y0
+
+# Kesişim noktası hesaplaması
+x2_intercept = (line_intercept - hipotenus_intercept) / hipotenus_slope
+y2_intercept = line_intercept
+
+# Kesişim noktası hipotenüs üzerinde olmalı
+b2 = APoint(x2_intercept, y2_intercept)  # k_10 noktası
+
+# Çizginin uzunluğunu hesapla
+line_length = math.sqrt((b2.x - a2.x)**2 + (b2.y - a2.y)**2)
+print(line_length)
+
+# Hesaplama sonuçlarını yazdır
+print(f"Kesişim noktası: ({b2.x}, {b2.y})")
+print(f"Çizginin uzunluğu: {line_length:.2f}")
+#----------------------------------------------------------
+
+#---------------------su4---------------------------------
+#su3 = APoint(A2_LEN+A3_LEN,H2_LEN+H3_LEN+H4_LEN-55)
+# Dik kenar üzerindeki nokta
+y0 = H2_LEN+H3_LEN+H4_LEN-80
+a4 = APoint(A2_LEN+B2_LEN+A3_LEN, y0)  # a noktası (270, 450)
+
+# Hipotenüsün denklemi: y = -4.1x + 1637
+hipotenus_slope = (C.y - B.y) / (C.x - B.x)  # Eğim hesaplanması
+hipotenus_intercept = C.y - (hipotenus_slope * C.x)  # y-keseni hesaplanması
+
+# Çizgi denklemi: y = y0
+line_slope = -0,3
+line_intercept = y0
+
+# Kesişim noktası hesaplaması
+x4_intercept = (line_intercept - hipotenus_intercept) / hipotenus_slope
+y4_intercept = line_intercept
+
+# Kesişim noktası hipotenüs üzerinde olmalı
+b4 = APoint(x4_intercept, y4_intercept)  # k_10 noktası
+
+# Çizginin uzunluğunu hesapla
+line_length = math.sqrt((b4.x - a4.x)**2 + (b4.y - a4.y)**2)
+print(line_length)
+
+# Hesaplama sonuçlarını yazdır
+print(f"Kesişim noktası: ({b4.x}, {b4.y})")
+print(f"Çizginin uzunluğu: {line_length:.2f}")
+#---------------------------------------------------------
+
+#---------------------su6---------------------------------
+#su5 = APoint(A2_LEN,H2_LEN+H3_LEN-60)
+# Dik kenar üzerindeki nokta
+y0 = H2_LEN+H3_LEN-75
+a6 = APoint(A2_LEN+B2_LEN+A3_LEN, y0)  # a noktası (270, 450)
+
+# Hipotenüsün denklemi: y = -4.1x + 1637
+hipotenus_slope = (C.y - B.y) / (C.x - B.x)  # Eğim hesaplanması
+hipotenus_intercept = C.y - (hipotenus_slope * C.x)  # y-keseni hesaplanması
+
+# Çizgi denklemi: y = y0
+line_slope = -0,3
+line_intercept = y0
+
+# Kesişim noktası hesaplaması
+x6_intercept = (line_intercept - hipotenus_intercept) / hipotenus_slope
+y6_intercept = line_intercept
+
+# Kesişim noktası hipotenüs üzerinde olmalı
+b6 = APoint(x6_intercept, y6_intercept)  # k_10 noktası
+
+# Çizginin uzunluğunu hesapla
+line_length = math.sqrt((b6.x - a6.x)**2 + (b6.y - a6.y)**2)
+print(line_length)
+
+# Hesaplama sonuçlarını yazdır
+print(f"Kesişim noktası: ({b6.x}, {b6.y})")
+print(f"Çizginin uzunluğu: {line_length:.2f}")
+#------------------------------------------------------
+
+#---------------------su8---------------------------------
+# su7 = APoint(A2_LEN,H2_LEN+H3_LEN-140)
+# Dik kenar üzerindeki nokta
+y0 = H2_LEN+H3_LEN-155
+a8 = APoint(A2_LEN+B2_LEN+A3_LEN, y0)  # a noktası (270, 450)
+
+# Hipotenüsün denklemi: y = -4.1x + 1637
+hipotenus_slope = (C.y - B.y) / (C.x - B.x)  # Eğim hesaplanması
+hipotenus_intercept = C.y - (hipotenus_slope * C.x)  # y-keseni hesaplanması
+
+# Çizgi denklemi: y = y0
+line_slope = -0,3
+line_intercept = y0
+
+# Kesişim noktası hesaplaması
+x8_intercept = (line_intercept - hipotenus_intercept) / hipotenus_slope
+y8_intercept = line_intercept
+
+# Kesişim noktası hipotenüs üzerinde olmalı
+b8 = APoint(x8_intercept, y8_intercept)  # k_10 noktası
+
+# Çizginin uzunluğunu hesapla
+line_length = math.sqrt((b8.x - a8.x)**2 + (b8.y - a8.y)**2)
+print(line_length)
+
+# Hesaplama sonuçlarını yazdır
+print(f"Kesişim noktası: ({b8.x}, {b8.y})")
+print(f"Çizginin uzunluğu: {line_length:.2f}")
+#------------------------------------------------------
 #==================================================
 
 #================HATCH==================================
@@ -335,11 +460,11 @@ f_10 = APoint(A2_LEN+A3_LEN,H2_LEN+H3_LEN+H4_LEN-10)
 k_15_10 = APoint(A2_LEN+B2_LEN+A3_LEN+R_LEN+15,H2_LEN+H3_LEN+H4_LEN-10)
 
 
-su1 = (A2_LEN+A3_LEN,H2_LEN+H3_LEN+H4_LEN-35)
-su3 = (A2_LEN+A3_LEN,H2_LEN+H3_LEN+H4_LEN-55)
+su1 = APoint(A2_LEN+A3_LEN,H2_LEN+H3_LEN+H4_LEN-45)
+su3 = APoint(A2_LEN+A3_LEN,H2_LEN+H3_LEN+H4_LEN-70)
 
-su5 = (A2_LEN,H2_LEN+H3_LEN-60)
-su6 = (A2_LEN,H2_LEN+H3_LEN-140)
+su5 = APoint(A2_LEN,H2_LEN+H3_LEN-60)
+su7 = APoint(A2_LEN,H2_LEN+H3_LEN-140)
 """
 #============C_SOL CİZİK============================
 
@@ -457,6 +582,11 @@ TB2 = acad.model.AddLine(u,u_sag)
 d_l = acad.model.AddLine(d,l)
 #X3_X2= acad.model.AddLine(x2,x3)
 
+#===============su havzaları====================================
+#su1_su2 = acad.model.AddLine(su1,b2)
+#su3_su4 = acad.model.AddLine(su3,b4)
+#su5_su6 = acad.model.AddLine(su5,b6)
+#su7_su8 = acad.model.AddLine(su7,b8)
 #============B2 DİK CİZİK============================
 B2_DİK_CİZGİ = acad.model.AddLine(b2_dik_cizgi,b2_dik_alt)
 B2_DİK_CİZGİ2 = acad.model.AddLine(b2_dik_cizgi2,b2_dik_alt2)
