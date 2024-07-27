@@ -399,6 +399,7 @@ class Application(tk.Tk):
 
         # Execute HIS.py
         self.execute_script("HIS_2_TIP2.py")
+
     def save_entries_form6(self):
         # Get entries for form1
         data6 = {label: entry.get() for label, entry in self.entries6.items()}
