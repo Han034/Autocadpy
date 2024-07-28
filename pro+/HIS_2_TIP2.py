@@ -12,8 +12,8 @@ with open('input_data_form2_TIP2.json', 'r') as f:
 # JSON verilerini değişkenlere ata, varsayılan değerler 0
 H2_LEN = int(data.get("H2_LEN", 0))
 H3_LEN = int(data.get("H3_LEN", 0))
-H4_LEN = int(data.get("H4_LEN", 0))
-H4X_LEN = int(data.get("H4X_LEN", 0))
+
+
 H5_LEN = int(data.get("H5_LEN", 0))
 H5X_LEN = int(data.get("H5X_LEN", 0))
 H6_LEN = int(data.get("H6_LEN", 0))
@@ -34,8 +34,8 @@ Q100 = int(data.get("Q100", 0))
 """
 H2_LEN = 100
 H3_LEN = 860
-H4_LEN = 250
-H4X_LEN = 250
+-H4_LEN = 250
+-H4X_LEN = 250
 H5_LEN = 80
 H5X_LEN = 130
 H6_LEN = 50
@@ -56,7 +56,7 @@ Q100 = 20
 """
 
 move = 2000
-H4X_LEN =  H4_LEN 
+
 H2X_LEN = H2_LEN
 H15X_LEN = H15_LEN
 H1_LEN = H10_LEN+H15_LEN+H3_LEN+H15X_LEN+H10X_LEN
@@ -189,17 +189,13 @@ n3 = APoint(-H19_LEN-H5_LEN+move, H18_LEN+H20_LEN)
 n4 = APoint(-H19_LEN-H5_LEN+move, H18_LEN+H20_LEN+H6_LEN)
 n5 = APoint(-H19_LEN-H5_LEN+move, H18_LEN+H20_LEN+H6_LEN+H7_LEN)
 
-#n6 = APoint(H9_LEN-H6_LEN,H4_LEN + H6_LEN + H7_LEN)
-#n7 = APoint(H9_LEN-20,H4_LEN+H6_LEN-H7_LEN-20)
-#n7 = APoint(H9_LEN-H6_LEN-4,H4_LEN + H6_LEN + H7_LEN-10)
+
 n8 = APoint(-H19_LEN+H9_LEN+move, H18_LEN+H20_LEN+10)
 n9 = APoint(-H19_LEN+H9_LEN+move, H18_LEN+H20_LEN)
 n10 = APoint(H10_LEN+H15_LEN+H3_LEN+H15X_LEN+H10X_LEN+H19X_LEN-H9X_LEN+move,H18_LEN+H20X_LEN)
 #=============================================
 n11 = APoint(H10_LEN+H15_LEN+H3_LEN+H15X_LEN+H10X_LEN+H19X_LEN-H9X_LEN+move,H18_LEN+H20X_LEN+10)
-#n12 = APoint(H1_LEN-H9X_LEN+15,H4_LEN+H6_LEN-H7_LEN-20)
 n12 = APoint(H10_LEN+H15_LEN+H3_LEN+H15X_LEN+H10X_LEN+H19X_LEN-H9X_LEN+H6_LEN+move,H18_LEN+H20X_LEN+H6_LEN)
-#n13 = APoint(H1_LEN-H9X_LEN+10,H4_LEN+H6_LEN-H7_LEN-10)
 n13 = APoint(H10_LEN+H15_LEN+H3_LEN+H15X_LEN+H10X_LEN+H19X_LEN-H9X_LEN+H6_LEN+move,H18_LEN+H20X_LEN+H6_LEN+10)
 #=============================================
 n14 = APoint(H10_LEN+H15_LEN+H3_LEN+H15X_LEN+H10X_LEN+H19X_LEN+H5X_LEN+move,H18_LEN+H20X_LEN+H6_LEN)

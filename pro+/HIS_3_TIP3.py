@@ -1,5 +1,3 @@
-#HIS_3_TIP2
-
 from pyautocad import Autocad, APoint, aDouble
 import win32com.client
 import pythoncom
@@ -7,7 +5,7 @@ import json
 from math import pi
 
 # JSON dosyasını okuma
-with open('input_data_form3_TIP2.json', 'r') as f:
+with open('input_data_form3_TIP3.json', 'r') as f:
     data = json.load(f)
 
 # JSON verilerini değişkenlere ata
@@ -26,7 +24,8 @@ H3X_LEN = int(data.get("H3X_LEN", 0))
 H2_LEN = int(data.get("H2_LEN", 0))
 H8_LEN = int(data.get("H8_LEN", 0))
 H3X_LEN = int(data.get("H3X_LEN", 0))
-
+H20_LEN = int(data.get("H20_LEN", 0))
+H21_LEN = int(data.get("H21_LEN", 0))
 
 """
 H9_LEN = 50
@@ -52,11 +51,15 @@ H8_LEN = 1635
 
 #length1_x = H13_LEN
 #length2_x = H13_LEN / 2
+H20_LEN = 60
+H21_LEN = 300
 """
+
 move = 4000
 H40_LEN = 50 # fark yatay
 H30_LEN = 50 # fark dikey
 #================HATCH==================================
+
 acad = win32com.client.Dispatch("AutoCAD.Application")
 acadModel = acad.ActiveDocument.ModelSpace
 
@@ -138,89 +141,144 @@ hatch.EntityTransparency = 70
 
 out_loop = []
 sq = acadModel.AddPolyline(aaDouble([                                   
+0+H40_LEN+move, H9_LEN + H10_LEN + H1_LEN+H20_LEN,0,
+-H3_LEN+move, H9_LEN + H10_LEN + H1_LEN+H20_LEN,0,
+-H3_LEN+move, H9_LEN + H10_LEN + H1_LEN+H4_LEN+H20_LEN,0,
+0+H40_LEN+move, H9_LEN + H10_LEN + H1_LEN+H4_LEN+H20_LEN,0,
+0+H40_LEN+move, H9_LEN + H10_LEN + H1_LEN+H20_LEN,0
+]))
+
+sq.lineweight = -1
+out_loop.append(sq)
+outer = aavariants(out_loop)
+hatch = acadModel.AddHatch(0, "SOLID", True)
+hatch.AppendOuterLoop(outer)
+hatch.PatternScale = 7
+hatch.EntityTransparency = 70
+
+
+out_loop = []
+sq = acadModel.AddPolyline(aaDouble([                                   
+-H3_LEN+H11_LEN+move, H9_LEN + H10_LEN + H1_LEN+H4_LEN+H20_LEN,0,
+-H3_LEN+H11_LEN+move, H9_LEN + H10_LEN + H1_LEN+H4_LEN+H13_LEN+H20_LEN,0,
+-H3_LEN+H11_LEN+H12_LEN+H7_LEN+H12X_LEN+move, H9_LEN + H10_LEN + H1_LEN+H4_LEN+H13_LEN+H20_LEN,0,
+-H3_LEN+H11_LEN+H12_LEN+H7_LEN+H12X_LEN+move, H9_LEN + H10_LEN + H1_LEN+H4_LEN+H20_LEN,0,
+-H3_LEN+H11_LEN+move, H9_LEN + H10_LEN + H1_LEN+H4_LEN+H20_LEN,0,
+]))
+
+sq.lineweight = -1
+out_loop.append(sq)
+outer = aavariants(out_loop)
+hatch = acadModel.AddHatch(0, "SOLID", True)
+hatch.AppendOuterLoop(outer)
+hatch.PatternScale = 7
+hatch.EntityTransparency = 70
+
+out_loop = []
+sq = acadModel.AddPolyline(aaDouble([                                   
+0+H40_LEN+100+move, H9_LEN + H10_LEN + H1_LEN+H4_LEN+H20_LEN,0,
+0+H40_LEN+100+move, H9_LEN + H10_LEN + H1_LEN+H20_LEN-20,0,
+-H3_LEN+H8_LEN-H3X_LEN-H40_LEN-100+move, H9_LEN + H10_LEN + H1_LEN+H20_LEN-20,0,
+-H3_LEN+H8_LEN-H3X_LEN-H40_LEN-100+move, H9_LEN + H10_LEN + H1_LEN+H4_LEN+H20_LEN,0,
+0+H40_LEN+100+move, H9_LEN + H10_LEN + H1_LEN+H4_LEN+H20_LEN,0
+]))
+
+sq.lineweight = -1
+out_loop.append(sq)
+outer = aavariants(out_loop)
+hatch = acadModel.AddHatch(0, "SOLID", True)
+hatch.AppendOuterLoop(outer)
+hatch.PatternScale = 7
+hatch.EntityTransparency = 70
+
+out_loop = []
+sq = acadModel.AddPolyline(aaDouble([                                   
+-H3_LEN+H8_LEN-H3X_LEN-H40_LEN+move, H9_LEN + H10_LEN + H1_LEN+H20_LEN,0,
+-H3_LEN+H8_LEN-H3X_LEN-H40_LEN+move, H9_LEN + H10_LEN + H1_LEN+H4_LEN+H20_LEN,0,
+-H3_LEN+H8_LEN+move, H9_LEN + H10_LEN + H1_LEN+H4_LEN+H20_LEN,0,
+-H3_LEN+H8_LEN+move, H9_LEN + H10_LEN + H1_LEN+H20_LEN,0,
+-H3_LEN+H8_LEN-H3X_LEN-H40_LEN+move, H9_LEN + H10_LEN + H1_LEN+H20_LEN,0
+]))
+
+sq.lineweight = -1
+out_loop.append(sq)
+outer = aavariants(out_loop)
+hatch = acadModel.AddHatch(0, "SOLID", True)
+hatch.AppendOuterLoop(outer)
+hatch.PatternScale = 7
+hatch.EntityTransparency = 70
+
+
+out_loop = []
+sq = acadModel.AddPolyline(aaDouble([                                   
+-H3_LEN+H11_LEN+H12_LEN+move, H9_LEN + H10_LEN + H1_LEN+H4_LEN+H13_LEN+H20_LEN,0,
+-H3_LEN+H11_LEN+H12_LEN+move, H9_LEN + H10_LEN + H1_LEN+H4_LEN+H13_LEN+H14_LEN+H20_LEN,0,
+-H3_LEN+H11_LEN+H12_LEN+H7_LEN+move, H9_LEN + H10_LEN + H1_LEN+H4_LEN+H13_LEN+H14_LEN+H20_LEN,0,
+-H3_LEN+H11_LEN+H12_LEN+H7_LEN+move, H9_LEN + H10_LEN + H1_LEN+H4_LEN+H13_LEN+H20_LEN,0,
+-H3_LEN+H11_LEN+H12_LEN+move, H9_LEN + H10_LEN + H1_LEN+H4_LEN+H13_LEN+H20_LEN,0
+]))
+
+sq.lineweight = -1
+out_loop.append(sq)
+outer = aavariants(out_loop)
+hatch = acadModel.AddHatch(0, "SOLID", True)
+hatch.AppendOuterLoop(outer)
+hatch.PatternScale = 7
+hatch.EntityTransparency = 70
+
+out_loop = []
+sq = acadModel.AddPolyline(aaDouble([
+                                    0+move, H9_LEN + H10_LEN + H1_LEN,0, #4
+-H3_LEN+move, H9_LEN + H10_LEN + H1_LEN+H20_LEN,0,#5
+0+H40_LEN+move, H20_LEN+H9_LEN + H10_LEN + H1_LEN,0,#27
+0+H40_LEN+100+move, H20_LEN+H9_LEN + H10_LEN + H1_LEN-20,0,#30
+-H3_LEN+H8_LEN-H3X_LEN-H40_LEN-100+move, H20_LEN+H9_LEN + H10_LEN + H1_LEN-20,0,#31
+-H3_LEN+H8_LEN-H3X_LEN-H40_LEN+move, H20_LEN+H9_LEN + H10_LEN + H1_LEN,0,#34
+-H3_LEN+H8_LEN+move, H20_LEN+H9_LEN + H10_LEN + H1_LEN,0,#16
+-H3_LEN+H8_LEN-H3X_LEN+move, H9_LEN + H10_LEN + H1_LEN,0,#17
+-H3_LEN+H8_LEN-H3X_LEN-H30_LEN+move, H9_LEN + H10_LEN + H1_LEN,0,
 0+H40_LEN+move, H9_LEN + H10_LEN + H1_LEN,0,
--H3_LEN+move, H9_LEN + H10_LEN + H1_LEN,0,
--H3_LEN+move, H9_LEN + H10_LEN + H1_LEN+H4_LEN,0,
-0+H40_LEN+move, H9_LEN + H10_LEN + H1_LEN+H4_LEN,0,
-0+H40_LEN+move, H9_LEN + H10_LEN + H1_LEN,0
-]))
-
+0+move, H9_LEN + H10_LEN + H1_LEN,0,
+                                     ]))
 sq.lineweight = -1
 out_loop.append(sq)
 outer = aavariants(out_loop)
-hatch = acadModel.AddHatch(0, "SOLID", True)
+hatch = acadModel.AddHatch(0, "GRAVEL", True)
 hatch.AppendOuterLoop(outer)
-hatch.PatternScale = 7
+hatch.PatternScale = 5
+hatch.EntityTransparency = 70
+
+out_loop = []
+sq = acadModel.AddPolyline(aaDouble([
+                                    +H40_LEN+move, H9_LEN + H10_LEN,0,
+0+H40_LEN+move, H9_LEN + H10_LEN + H1_LEN-H30_LEN,0,
+-H3_LEN+H8_LEN-H3X_LEN-H30_LEN+move, H9_LEN + H10_LEN + H1_LEN-H30_LEN,0,
+H2_LEN-H40_LEN+move, H9_LEN + H10_LEN,0,
+ +H40_LEN+move, H9_LEN + H10_LEN,0,
+                                     ]))
+sq.lineweight = -1
+out_loop.append(sq)
+outer = aavariants(out_loop)
+hatch = acadModel.AddHatch(0, "GRAVEL", True)
+hatch.AppendOuterLoop(outer)
+hatch.PatternScale = 5
 hatch.EntityTransparency = 70
 
 
 out_loop = []
-sq = acadModel.AddPolyline(aaDouble([                                   
--H3_LEN+H11_LEN+move, H9_LEN + H10_LEN + H1_LEN+H4_LEN,0,
--H3_LEN+H11_LEN+move, H9_LEN + H10_LEN + H1_LEN+H4_LEN+H13_LEN,0,
--H3_LEN+H11_LEN+H12_LEN+H7_LEN+H12X_LEN+move, H9_LEN + H10_LEN + H1_LEN+H4_LEN+H13_LEN,0,
--H3_LEN+H11_LEN+H12_LEN+H7_LEN+H12X_LEN+move, H9_LEN + H10_LEN + H1_LEN+H4_LEN,0,
--H3_LEN+H11_LEN+move, H9_LEN + H10_LEN + H1_LEN+H4_LEN,0,
-]))
-
+sq = acadModel.AddPolyline(aaDouble([
+                        0+move, -H21_LEN,0,
+0+move, 0,0,
+H2_LEN+move, 0,0,
+0+move+H2_LEN, -H21_LEN,0,
+0+move, -H21_LEN,0,
+                                     ]))
 sq.lineweight = -1
 out_loop.append(sq)
 outer = aavariants(out_loop)
-hatch = acadModel.AddHatch(0, "SOLID", True)
+hatch = acadModel.AddHatch(0, "GRAVEL", True)
 hatch.AppendOuterLoop(outer)
-hatch.PatternScale = 7
-hatch.EntityTransparency = 70
-
-out_loop = []
-sq = acadModel.AddPolyline(aaDouble([                                   
-0+H40_LEN+100+move, H9_LEN + H10_LEN + H1_LEN+H4_LEN,0,
-0+H40_LEN+100+move, H9_LEN + H10_LEN + H1_LEN,0,
--H3_LEN+H8_LEN-H3X_LEN-H40_LEN-100+move, H9_LEN + H10_LEN + H1_LEN,0,
--H3_LEN+H8_LEN-H3X_LEN-H40_LEN-100+move, H9_LEN + H10_LEN + H1_LEN+H4_LEN,0,
-0+H40_LEN+100+move, H9_LEN + H10_LEN + H1_LEN+H4_LEN,0
-]))
-
-sq.lineweight = -1
-out_loop.append(sq)
-outer = aavariants(out_loop)
-hatch = acadModel.AddHatch(0, "SOLID", True)
-hatch.AppendOuterLoop(outer)
-hatch.PatternScale = 7
-hatch.EntityTransparency = 70
-
-
-out_loop = []
-sq = acadModel.AddPolyline(aaDouble([                                   
--H3_LEN+H8_LEN-H3X_LEN-H40_LEN+move, H9_LEN + H10_LEN + H1_LEN,0,
--H3_LEN+H8_LEN-H3X_LEN-H40_LEN+move, H9_LEN + H10_LEN + H1_LEN+H4_LEN,0,
--H3_LEN+H8_LEN+move, H9_LEN + H10_LEN + H1_LEN+H4_LEN,0,
--H3_LEN+H8_LEN+move, H9_LEN + H10_LEN + H1_LEN,0,
--H3_LEN+H8_LEN-H3X_LEN-H40_LEN+move, H9_LEN + H10_LEN + H1_LEN,0
-]))
-
-sq.lineweight = -1
-out_loop.append(sq)
-outer = aavariants(out_loop)
-hatch = acadModel.AddHatch(0, "SOLID", True)
-hatch.AppendOuterLoop(outer)
-hatch.PatternScale = 7
-hatch.EntityTransparency = 70
-
-out_loop = []
-sq = acadModel.AddPolyline(aaDouble([                                   
--H3_LEN+H11_LEN+H12_LEN+move, H9_LEN + H10_LEN + H1_LEN+H4_LEN+H13_LEN,0,
--H3_LEN+H11_LEN+H12_LEN+move, H9_LEN + H10_LEN + H1_LEN+H4_LEN+H13_LEN+H14_LEN,0,
--H3_LEN+H11_LEN+H12_LEN+H7_LEN+move, H9_LEN + H10_LEN + H1_LEN+H4_LEN+H13_LEN+H14_LEN,0,
--H3_LEN+H11_LEN+H12_LEN+H7_LEN+move, H9_LEN + H10_LEN + H1_LEN+H4_LEN+H13_LEN,0,
--H3_LEN+H11_LEN+H12_LEN+move, H9_LEN + H10_LEN + H1_LEN+H4_LEN+H13_LEN,0
-]))
-
-sq.lineweight = -1
-out_loop.append(sq)
-outer = aavariants(out_loop)
-hatch = acadModel.AddHatch(0, "SOLID", True)
-hatch.AppendOuterLoop(outer)
-hatch.PatternScale = 7
+hatch.PatternScale = 5
 hatch.EntityTransparency = 70
 
 #=============================================================
@@ -236,18 +294,18 @@ n1 = APoint(0+move, 0)
 n2 = APoint(0+move, H9_LEN)
 n3 = APoint(0+move, H9_LEN + H10_LEN)
 n4 = APoint(0+move, H9_LEN + H10_LEN + H1_LEN)
-n5 = APoint(-H3_LEN+move, H9_LEN + H10_LEN + H1_LEN)
-n6 = APoint(-H3_LEN+move, H9_LEN + H10_LEN + H1_LEN+H4_LEN)
-n7 = APoint(-H3_LEN+H11_LEN+move, H9_LEN + H10_LEN + H1_LEN+H4_LEN)
-n8 = APoint(-H3_LEN+H11_LEN+move, H9_LEN + H10_LEN + H1_LEN+H4_LEN+H13_LEN)
-n9 = APoint(-H3_LEN+H11_LEN+H12_LEN+move, H9_LEN + H10_LEN + H1_LEN+H4_LEN+H13_LEN)
-n10 = APoint(-H3_LEN+H11_LEN+H12_LEN+move, H9_LEN + H10_LEN + H1_LEN+H4_LEN+H13_LEN+H14_LEN)
-n11 = APoint(-H3_LEN+H11_LEN+H12_LEN+H7_LEN+move, H9_LEN + H10_LEN + H1_LEN+H4_LEN+H13_LEN+H14_LEN)
-n12 = APoint(-H3_LEN+H11_LEN+H12_LEN+H7_LEN+move, H9_LEN + H10_LEN + H1_LEN+H4_LEN+H13_LEN)
-n13 = APoint(-H3_LEN+H11_LEN+H12_LEN+H7_LEN+H12X_LEN+move, H9_LEN + H10_LEN + H1_LEN+H4_LEN+H13_LEN)
-n14 = APoint(-H3_LEN+H11_LEN+H12_LEN+H7_LEN+H12X_LEN+move, H9_LEN + H10_LEN + H1_LEN+H4_LEN)
-n15 = APoint(-H3_LEN+H8_LEN+move, H9_LEN + H10_LEN + H1_LEN+H4_LEN)
-n16 = APoint(-H3_LEN+H8_LEN+move, H9_LEN + H10_LEN + H1_LEN)
+n5 = APoint(-H3_LEN+move, H9_LEN + H10_LEN + H1_LEN+H20_LEN)
+n6 = APoint(-H3_LEN+move, H9_LEN + H10_LEN + H1_LEN+H4_LEN+H20_LEN)
+n7 = APoint(-H3_LEN+H11_LEN+move, H20_LEN+H9_LEN + H10_LEN + H1_LEN+H4_LEN)
+n8 = APoint(-H3_LEN+H11_LEN+move, H20_LEN+H9_LEN + H10_LEN + H1_LEN+H4_LEN+H13_LEN)
+n9 = APoint(-H3_LEN+H11_LEN+H12_LEN+move, H20_LEN+H9_LEN + H10_LEN + H1_LEN+H4_LEN+H13_LEN)
+n10 = APoint(-H3_LEN+H11_LEN+H12_LEN+move, H20_LEN+H9_LEN + H10_LEN + H1_LEN+H4_LEN+H13_LEN+H14_LEN)
+n11 = APoint(-H3_LEN+H11_LEN+H12_LEN+H7_LEN+move, H20_LEN+H9_LEN + H10_LEN + H1_LEN+H4_LEN+H13_LEN+H14_LEN)
+n12 = APoint(-H3_LEN+H11_LEN+H12_LEN+H7_LEN+move,H20_LEN+ H9_LEN + H10_LEN + H1_LEN+H4_LEN+H13_LEN)
+n13 = APoint(-H3_LEN+H11_LEN+H12_LEN+H7_LEN+H12X_LEN+move, H20_LEN+H9_LEN + H10_LEN + H1_LEN+H4_LEN+H13_LEN)
+n14 = APoint(-H3_LEN+H11_LEN+H12_LEN+H7_LEN+H12X_LEN+move, H20_LEN+H9_LEN + H10_LEN + H1_LEN+H4_LEN)
+n15 = APoint(-H3_LEN+H8_LEN+move, H20_LEN+H9_LEN + H10_LEN + H1_LEN+H4_LEN)
+n16 = APoint(-H3_LEN+H8_LEN+move, H20_LEN+H9_LEN + H10_LEN + H1_LEN)
 n17 = APoint(-H3_LEN+H8_LEN-H3X_LEN+move, H9_LEN + H10_LEN + H1_LEN)
 
 n18 = APoint(H2_LEN+move, H9_LEN + H10_LEN)
@@ -257,18 +315,22 @@ n20 = APoint(H2_LEN+move, 0)
 n21 = APoint(H2_LEN-H40_LEN+move, H9_LEN + H10_LEN)
 n22 = APoint(+H40_LEN+move, H9_LEN + H10_LEN)
 
-n27 = APoint(0+H40_LEN+move, H9_LEN + H10_LEN + H1_LEN)
-n28 = APoint(0+H40_LEN+move, H9_LEN + H10_LEN + H1_LEN+H4_LEN)
-n29 = APoint(0+H40_LEN+100+move, H9_LEN + H10_LEN + H1_LEN+H4_LEN)
-n30 = APoint(0+H40_LEN+100+move, H9_LEN + H10_LEN + H1_LEN)
+n27 = APoint(0+H40_LEN+move, H20_LEN+H9_LEN + H10_LEN + H1_LEN)
+n28 = APoint(0+H40_LEN+move, H20_LEN+H9_LEN + H10_LEN + H1_LEN+H4_LEN)
+n29 = APoint(0+H40_LEN+100+move, H20_LEN+H9_LEN + H10_LEN + H1_LEN+H4_LEN)
+n30 = APoint(0+H40_LEN+100+move, H20_LEN+H9_LEN + H10_LEN + H1_LEN-20)
 
-n26 = APoint(0+H40_LEN+move, H9_LEN + H10_LEN + H1_LEN-H30_LEN)
-n25 = APoint(-H3_LEN+H8_LEN-H3X_LEN-H30_LEN+move, H9_LEN + H10_LEN + H1_LEN-H30_LEN)
-n34 = APoint(-H3_LEN+H8_LEN-H3X_LEN-H40_LEN+move, H9_LEN + H10_LEN + H1_LEN)
-n33 = APoint(-H3_LEN+H8_LEN-H3X_LEN-H40_LEN+move, H9_LEN + H10_LEN + H1_LEN+H4_LEN)
-n32 = APoint(-H3_LEN+H8_LEN-H3X_LEN-H40_LEN-100+move, H9_LEN + H10_LEN + H1_LEN+H4_LEN)
-n31 = APoint(-H3_LEN+H8_LEN-H3X_LEN-H40_LEN-100+move, H9_LEN + H10_LEN + H1_LEN)
+n26 = APoint(0+H40_LEN+move, H9_LEN + H10_LEN + H1_LEN)
+N26X = APoint(0+H40_LEN+move, H9_LEN + H10_LEN + H1_LEN-H30_LEN)
+n25 = APoint(-H3_LEN+H8_LEN-H3X_LEN-H30_LEN+move, H9_LEN + H10_LEN + H1_LEN)
+n25x = APoint(-H3_LEN+H8_LEN-H3X_LEN-H30_LEN+move, H9_LEN + H10_LEN + H1_LEN-H30_LEN)
+n34 = APoint(-H3_LEN+H8_LEN-H3X_LEN-H40_LEN+move, H20_LEN+H9_LEN + H10_LEN + H1_LEN)
+n33 = APoint(-H3_LEN+H8_LEN-H3X_LEN-H40_LEN+move, H20_LEN+H9_LEN + H10_LEN + H1_LEN+H4_LEN)
+n32 = APoint(-H3_LEN+H8_LEN-H3X_LEN-H40_LEN-100+move, H20_LEN+H9_LEN + H10_LEN + H1_LEN+H4_LEN)
+n31 = APoint(-H3_LEN+H8_LEN-H3X_LEN-H40_LEN-100+move, H20_LEN+H9_LEN + H10_LEN + H1_LEN-20)
 
+n51 = APoint(0+move, -H21_LEN)
+n52 = APoint(0+move+H2_LEN, -H21_LEN)
 
 
 
@@ -301,8 +363,8 @@ N22_N26 = acad.model.AddLine(n22,n26)
 N25_N26 = acad.model.AddLine(n25,n26)
 N25_N21 = acad.model.AddLine(n25,n21)
 N22_N21 = acad.model.AddLine(n22,n21)
-N26_N27 = acad.model.AddLine(n26,n27)
-N25_N34 = acad.model.AddLine(n25,n34)
+#N26_N27 = acad.model.AddLine(n26,n27)
+#N25_N34 = acad.model.AddLine(n25,n34)
 N27_N28 = acad.model.AddLine(n27,n28)
 N29_N28 = acad.model.AddLine(n29,n28)
 N29_N30 = acad.model.AddLine(n29,n30)
@@ -311,6 +373,14 @@ N32_N31 = acad.model.AddLine(n32,n31)
 N32_N33 = acad.model.AddLine(n32,n33)
 N34_N33 = acad.model.AddLine(n34,n33)
 N34_N31 = acad.model.AddLine(n34,n31)
+N5_N27 = acad.model.AddLine(n5,n27)
+N16_N34 = acad.model.AddLine(n16,n34)
+N31_N30 = acad.model.AddLine(n31,n30)
+H21 = acad.model.AddLine(n1,n51)
+H2XY =acad.model.AddLine(n52,n51)
+H21X = acad.model.AddLine(n20,n52)
+
+
 
 
 
